@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                sh 'echo Deploy to dev ...'
+                sh 'echo Deploy pop-liabilities:$(cat versions) to dev version ...'
             }
         }
     }
