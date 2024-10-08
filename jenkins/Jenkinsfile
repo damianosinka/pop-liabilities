@@ -11,5 +11,23 @@ pipeline {
                 sh 'echo Executing tests ...'
             }
         }
+        stage('SendToArtifactory') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh 'echo 'run this stage - ony if the branch = main branch'
+                sh 'echo Sending pop-liabilities:$(cat versions) to artifactory ...'
+            }
+        }
+        stage('Deliver') {
+            when {
+                branch 'main'
+            }
+            steps {
+                sh 'echo 'run this stage - ony if the branch = main branch'
+                sh 'echo Deploy pop-liabilities:$(cat versions) to dev ...'
+            }
+        }
     }
 }
