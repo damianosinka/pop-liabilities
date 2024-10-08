@@ -11,9 +11,14 @@ pipeline {
                 sh 'echo Executing tests ...'
             }
         }
+        stage('SendToArtifactory') {
+            steps {
+                sh 'Sending pop-liabilities:$(cat versions) to artifactory ...'
+            }
+        }
         stage('Deliver') {
             steps {
-                sh 'echo Deploy pop-liabilities:$(cat versions) to dev version ...'
+                sh 'echo Deploy pop-liabilities:$(cat versions) to dev ...'
             }
         }
     }
