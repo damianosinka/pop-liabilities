@@ -13,7 +13,7 @@ pipeline {
         }
         stage('SendToArtifactory') {
             steps {
-                sh 'Sending pop-liabilities:$(cat versions) to artifactory ...'
+                sh 'echo Sending pop-liabilities:$(cat versions) to artifactory ...'
             }
         }
         stage('Deliver') {
